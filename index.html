@@ -1,0 +1,52 @@
+<html>
+<head>
+  <meta charset='utf-8' />
+  <title>Adventure Scientists Tree Zones</title>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+  <style>
+    body { margin:0; padding:0; }
+    #map { position:absolute; top:0; bottom:0; width:100%; }
+    #menu {position: absolute; background: #fff; padding: 10px; font-family: Arial, sans-serif; margin-top: 5px; margin-left: 5px;}
+  </style>
+</head>
+
+<body>
+
+<div id='map'></div>
+<div id='menu'>
+   <input id='cjt600jkz53us1eki4ub13m4s' type='radio' name='rtoggle' value='cjt600jkz53us1eki4ub13m4s' checked='checked'>
+   <label for='cjt600jkz53us1eki4ub13m4s'>Yellow Cedar</label>
+   <input id='cjt6270ey0v1n1fmk7sev0wh3' type='radio' name='rtoggle' value='cjt6270ey0v1n1fmk7sev0wh3'>
+   <label for='cjt6270ey0v1n1fmk7sev0wh3'>Western Red Cedar</label>
+   <input id='cjt62bry355jm1fow2bnstnl8' type='radio' name='rtoggle' value='cjt62bry355jm1fow2bnstnl8'>
+   <label for='cjt62bry355jm1fow2bnstnl8'>Coastal Redwood</label>
+</div>
+
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoidGFsdHl0b3BvIiwiYSI6ImNqdDV6aXJuaDA5aGo0M21tMnR6cml1bG4ifQ.BSxhwJJ2-hDaM8XbctQTow';
+var filterGroup = document.getElementById('filter-group');
+var map = new mapboxgl.Map({
+  container: 'map',
+  style: 'mapbox://styles/taltytopo/cjt600jkz53us1eki4ub13m4s',
+  center: [-126.8, 49.5],
+  zoom: 3.5
+});
+
+var layerList = document.getElementById('menu');
+var inputs = layerList.getElementsByTagName('input');
+function switchLayer(layer) {
+   var layerId = layer.target.id;
+   map.setStyle('mapbox://styles/taltytopo/' + layerId);
+   }
+for (var i = 0; i < inputs.length; i++) {
+   inputs[i].onclick = switchLayer;
+   }
+
+map.getCanvas().style.cursor = 'default';
+
+</script>
+
+</body>
+</html>
