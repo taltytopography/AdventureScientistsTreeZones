@@ -7,8 +7,8 @@
   <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
   <style>
     body { margin:0; padding:0; }
-    #map { position:absolute; top:0; bottom:0; width:100%; height:100%; }
-    #menu {position: absolute; background: #fff; padding: 10px; font-family: Arial, sans-serif; margin-top: 5px; margin-left: 5px;}
+    #map { position: absolute; top:0; bottom:0; width:100%; height:100%; }
+    #menu {position: absolute; background: #fff; padding: 5px; font-family: Arial, sans-serif; font-size: 14px; margin-top: 2px; margin-left: 2px;}
   </style>
 </head>
 
@@ -30,8 +30,8 @@ var filterGroup = document.getElementById('filter-group');
 var map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/taltytopo/cjt600jkz53us1eki4ub13m4s',
-  center: [-126.8, 49.5],
-  zoom: 3.5
+  center: [-127, 51.5],
+  zoom: 2.8
 });
 
 var layerList = document.getElementById('menu');
@@ -45,6 +45,8 @@ for (var i = 0; i < inputs.length; i++) {
    }
 
 map.getCanvas().style.cursor = 'default';
+
+options.trackResize() = 'true';
 
 </script>
 
